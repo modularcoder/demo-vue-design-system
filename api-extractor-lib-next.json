@@ -1,0 +1,8 @@
+{
+  "extends": "./api-extractor.json",
+  "mainEntryPointFilePath": "<projectFolder>/dist/ui-core-next/types/index-next.d.ts",
+  "dtsRollup": {
+    "enabled": true,
+    "untrimmedFilePath": "<projectFolder>/dist/ui-core-next/ui-core-next.d.ts"
+  }
+}

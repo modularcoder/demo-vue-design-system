@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+.ui,
+.ui .header,
+input,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
+
+@layer base {
+  a:not(.BaseLinkCustom):not(.BaseButton):not(.BaseButtonNext):not(.BaseLink) {
+    @apply twc-text-primary twc-font-medium;
+  }
+
+  a:not(.BaseLinkCustom):not(.BaseButton):not(.BaseButtonNext):not(.BaseLink):hover {
+    @apply twc-text-primary-700;
+  }
+
+  /* overriding the default browser focus-visible colors with the primary color */
+  :focus-visible {
+    @apply twc-outline-primary;
+  }
+}
+
+
+/*
+  Override default focus colors for tailwindcss-forms https://github.com/tailwindlabs/tailwindcss-forms
+  https://github.com/tailwindlabs/tailwindcss-forms/issues/14
+*/
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus,
+.form-checkbox:focus,
+.form-radio:focus {
+  /*--tw-ring-color: var(--primary-color);
+  border-color: var(--primary-color);*/
+  --tw-ring-color: red;
+  border-color: red;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.sb-show-main>#root,
+#app-ae-adr {
+  color: #212121;
+  font-size: 14px;
+}
+
+#ui-core-toast {
+  @apply twc-relative twc-z-50;
+}

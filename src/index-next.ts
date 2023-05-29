@@ -1,0 +1,16 @@
+import './index.css'
+
+// Next version
+export * from './_componentsNext/BaseLink'
+export * from './_componentsNext/BaseBadge'
+export * from './_componentsNext/BaseButton'
+export * from './_componentsNext/BaseHeading'
+export * from './_componentsNext/BaseTooltip'
+export * from './_componentsNext/Form/BaseInput'
+export * from './_componentsNext/Form/BaseTextarea'
+export * from './_componentsNext/Form/BaseRadio'
+export * from './_componentsNext/Form/BaseSelect'
+export * from './_componentsNext/Form/BaseCheckbox'
+export * from './_componentsNext/Form/BaseField'
+export * from './_componentsNext/BaseDropdown'
+export * from './_componentsNext/BaseMenu'

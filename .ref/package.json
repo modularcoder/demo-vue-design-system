@@ -1,0 +1,78 @@
+{
+  "name": "@pexeso/ui-core",
+  "version": "0.0.9",
+  "author": "Gevorg Harutyunyan <gevorg@pex.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pexeso/ui-core.git"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "tsc": "vue-tsc --noEmit",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "lint": "eslint --ext .ts,vue .",
+    "release": "auto shipit --base-branch=main"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0",
+    "@oruga-ui/oruga-next": "^0.4.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@modularcoder/vue-dts-generator": "file:../vue-dts-generator",
+    "@oruga-ui/oruga-next": "^0.4.5",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-replace": "^3.0.0",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/node": "^16.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "@vitejs/plugin-vue": "^1.9.3",
+    "@vue/compiler-sfc": "^3.2.19",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "auto": "^10.32.1",
+    "concurrently": "^6.3.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.19.1",
+    "naive-ui": "^2.19.6",
+    "prettier": "^2.4.1",
+    "rollup": "^2.58.0",
+    "rollup-copy-plugin": "^0.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "typescript": "^4.3.2",
+    "vant": "^2.12.29",
+    "vite": "^2.6.3",
+    "vite-plugin-dts": "^0.8.2",
+    "vue": "^3.0.0",
+    "vue-dts-gen": "^0.3.0",
+    "vue-tsc": "^0.3.0"
+  },
+  "files": [
+    "dist",
+    "src",
+    "public",
+    "index.html",
+    "tsconfig.json",
+    "vite.config.ts"
+  ],
+  "auto": {
+    "plugins": [
+      "npm"
+    ],
+    "onlyPublishWithReleaseLabel": false
+  }
+}

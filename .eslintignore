@@ -1,0 +1,7 @@
+node_modules/
+/**/*.d.ts
+/bin/
+tailwind.config.js
+.ref/
+dist/
+scripts/

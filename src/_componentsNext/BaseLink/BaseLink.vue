@@ -1,0 +1,78 @@
+<template>
+  <component
+    :is="computedTag"
+    class="twc-font-medium twc-leading-5 twc-text-primary BaseLink"
+    :to="to"
+    :class="[
+      !disabled &&
+        'twc-no-underline hover:twc-underline hover:twc-text-primary-700 focus:twc-underline focus:twc-text-primary-700',
+      disabled &&
+        'twc-pointer-events-none twc-select-none twc-cursor-default twc-opacity-50',
+    ]"
+    :href="
+      !disabled && $attrs.href && typeof $attrs.href === 'string'
+        ? $attrs.href
+        : ''
+    "
+    :aria-label="opensInNewWindow ? 'Opens in new tab' : undefined"
+    :aria-disabled="disabled ? true : undefined"
+    role="link"
+  >
+    <slot></slot>
+    <ExternalLinkIcon
+      v-if="external"
+      style="margin-top: -3px"
+      class="twc-inline-block twc-ml-0.5 twc-w-5 twc-h-5 twc-align-middle"
+    ></ExternalLinkIcon>
+  </component>
+</template>
+
+<script lang="ts">
+  import { computed, defineComponent } from 'vue'
+  import { PropType } from 'vue'
+  import { BASE_LINK_TAG, BaseLinkProps } from './BaseLink.types'
+  import { ExternalLinkIcon } from '@heroicons/vue/solid'
+
+  export default defineComponent({
+    components: {
+      ExternalLinkIcon,
+    },
+    props: {
+      disabled: {
+        type: Boolean as PropType<BaseLinkProps['disabled']>,
+        default: false,
+      },
+      external: {
+        type: Boolean as PropType<BaseLinkProps['external']>,
+        default: false,
+      },
+      tag: {
+        type: String as PropType<BaseLinkProps['tag']>,
+        default: BASE_LINK_TAG.A,
+      },
+      to: {
+        type: [String, Object],
+        default: undefined,
+      },
+    },
+    setup(props, { attrs }) {
+      const computedTag = computed(() => {
+        if (props.disabled) {
+          return BASE_LINK_TAG.SPAN
+        }
+
+        return props.tag
+      })
+
+      const opensInNewWindow = computed(() => {
+        return (
+          attrs.target &&
+          typeof attrs.target === 'string' &&
+          attrs.target.toLocaleLowerCase() === '_blank'
+        )
+      })
+
+      return { computedTag, opensInNewWindow }
+    },
+  })
+</script>
